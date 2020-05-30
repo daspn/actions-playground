@@ -1,0 +1,23 @@
+name: Pull Request Checks
+
+env:
+  TF_VERSION: 0.12.24
+
+on: pull_request
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: ${{ env.TF_VERSION }}
+
+    - name: Terraform init
+      run: terraform init
+
+    - name: "Terraform plan"
+      run: terraform plan
