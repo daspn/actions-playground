@@ -4,6 +4,7 @@ env:
   TF_VERSION: 0.12.24
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  MY_ARRAY: ['daspn/actions-test@master', 'owner/repo@branch']
 
 on:
   push:
@@ -29,3 +30,7 @@ jobs:
 
     - name: "Terraform plan"
       run: terraform plan
+
+    - name: "Array teste"
+      run: |
+        echo ${{ env.MY_ARRAY }}
