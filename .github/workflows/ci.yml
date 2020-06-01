@@ -35,4 +35,5 @@ jobs:
 
     - name: "Array test"
       run: |
-        echo jq -r .repos <<< '${{ env.MY_JSON_ARRAY }}'
+        R=$(jq -r .repos <<< '${{ env.MY_JSON_ARRAY }}')
+        echo "R is $"
