@@ -28,11 +28,11 @@ jobs:
       uses: daspn/private-actions-checkout@master
       with:
         actions_list: '["getzoop/actions-message-service@v1", "getzoop/actions-deployment-gate@v1"]'
-        actions_base_path: ${{ github.workspace }}/.github/actions
+        checkout_base_path: ./.github/actions
 
     - name: Private actions checkout validation
       run: |
-        ls -lR ${{ github.workspace }}/.github/actions
+        ls -lR ./.github/actions
 
     - uses: hashicorp/setup-terraform@v1
       with:
