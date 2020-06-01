@@ -35,5 +35,6 @@ jobs:
 
     - name: "Array test"
       run: |
-        REPOS=$(jq -r .repos <<< '${{ env.MY_JSON_ARRAY }}')
-        echo "REPOS is $REPOS"
+        jq -c '.repos' <<< '${{ env.MY_JSON_ARRAY }}' | while read i; do
+          echo $i
+        done
